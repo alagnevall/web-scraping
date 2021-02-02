@@ -30,10 +30,13 @@ def scrape():
     # NT = soup.find_all('li', class_="slide")
     # news_title = soup.find('div', class_ = "content_title").get_text()
     title = soup.find('li', class_="slide")
-    news_title = title.find_all('a')[1].text
-
+    try:
+        news_title = title.find_all('a')[1].text
+        paragraphs = soup.find('div', class_="article_teaser_body").text
+    except AttributeError:
+        news_title = "Title Unavailable, please run again"
+        paragraphs = "article unavailable, please try again"
     #set variables for paragraphs
-    paragraphs = soup.find('div', class_="article_teaser_body").text
 
     dictionary["news_title"]= news_title
     dictionary["paragraph"]= paragraphs
@@ -58,7 +61,7 @@ def scrape():
     # reset the index for the df
     facts_df.set_index("description", inplace=True)
 
-    dictionary["facts_df"]= facts_df
+    dictionary["facts_df"]= facts_df.to_html()
 
     # print(facts_df)
 
