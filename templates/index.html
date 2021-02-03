@@ -7,6 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars Data</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    .rounded{
+      padding-bottom: 10px;
+      padding-top: 40px;
+      display: block;
+      margin: auto;
+    }
+    .dataframe{
+      padding-top: 40px;
+      font-size: 24px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,16 +31,44 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
+    
     <div class="row" id="craiglist-listings">
       <div class="col-md-12">
-        <h4 class="heading">{{mars.news_title}}</h4>
-        <small>{{mars.paragraph}}</small>
-        {{mars.facts_df|safe}}
-        <img src={{mars.hemisphers[0].img_url}}>
-        <img src={{mars.hemisphers[1].img_url}}>
-        <img src={{mars.hemisphers[2].img_url}}>
-        <img src={{mars.hemisphers[3].img_url}}>
+        <h2 class="heading"><strong>{{mars.news_title}}</strong></h2>
+        <h4>{{mars.paragraph}}</h4>
+        <br/><br/><br/>
+
+        <div class="row">
+
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            {{mars.facts_df|safe}}
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="row pt-4 viz-small">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+           <img class="rounded mx-auto d-block" src={{mars.hemisphers[0].img_url}} width="100%">
+           <div class="row text-center lead">{{mars.hemisphers[0].title}}</div>
+          </div>
+          <div class="col-md-4">
+        <img class="rounded mx-auto d-block" src={{mars.hemisphers[1].img_url}} width="100%">
+        <div class="row text-center lead">{{mars.hemisphers[1].title}}</div>
+      </div>
+        <div class="col-md-2"></div>
+        </div>
+          <div class="row pt-5 viz-small">
+            <div class="col-md-2"></div>
+            <div class="col-md-4"> 
+        <img class="rounded mx-auto d-block" src={{mars.hemisphers[2].img_url}} width="100%">
+        <div class="row text-center lead">{{mars.hemisphers[2].title}}</div>
+      </div>
+      <div class="col-md-4">
+        <img class="rounded mx-auto d-block" src={{mars.hemisphers[3].img_url}} width="100%">
+        <div class="row text-center lead">{{mars.hemisphers[3].title}}</div>
+      </div>
+      <div class="col-md-2"></div>
       </div>
     </div>
 

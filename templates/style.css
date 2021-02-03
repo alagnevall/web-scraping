@@ -1,0 +1,25 @@
+.
+.rounded {
+    padding-bottom: 40px; 
+  
+}
+
+
+
+
+@media (max-width: 800px) {
+    .navbar-brand {
+      background: #e3f2fd;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 5%;
+    }
+    .navbar {
+        background:none;
+    }
+    .viz-large img {
+        width: 100%;
+    }
+
+ }
+
